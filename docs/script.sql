@@ -8,7 +8,7 @@ CREATE TABLE user (
     password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE endereço (
+CREATE TABLE endereco (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cep CHAR(9) NOT NULL,
     rua VARCHAR(50) NOT NULL,
@@ -23,8 +23,8 @@ CREATE TABLE cliente (
     cpf CHAR(11) NOT NULL,
     email VARCHAR(100) NOT NULL,
     telefone CHAR(11) NOT NULL,
-    id_endereço INT,
-    FOREIGN KEY (id_endereço) REFERENCES endereço(id)
+    id_endereco INT,
+    FOREIGN KEY (id_endereco) REFERENCES endereco(id)
 );
 
 CREATE TABLE veiculo (
@@ -47,7 +47,7 @@ CREATE TABLE os (
 );
 
 
-CREATE TABLE serviço (
+CREATE TABLE servico (
     id INT AUTO_INCREMENT PRIMARY KEY,
     valor DECIMAL(10,2) NOT NULL,
     descricao VARCHAR(200)
@@ -58,7 +58,7 @@ CREATE TABLE item (
     valor DECIMAL(10,2) NOT NULL,
     quantidade INT NOT NULL,
     id_os INT NOT NULL,
-    id_serviço INT NOT NULL,
+    id_servico INT NOT NULL,
     FOREIGN KEY (id_os) REFERENCES os(id),
-    FOREIGN KEY (id_serviço) REFERENCES serviço(id)
+    FOREIGN KEY (id_servico) REFERENCES servico(id)
 );
