@@ -47,7 +47,7 @@ CREATE TABLE os (
 );
 
 
-CREATE TABLE serviço (
+CREATE TABLE servico (
     id INT AUTO_INCREMENT PRIMARY KEY,
     valor DECIMAL(10,2) NOT NULL,
     descricao VARCHAR(200)
