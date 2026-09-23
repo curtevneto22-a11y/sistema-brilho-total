@@ -19,9 +19,9 @@ const enderecoService = {
 
     },
 
-    recuperarEnderecoPorEmail: async (email) => {
+    recuperarEnderecoPorCep: async (cep) => {
 
-        const resultado = await enderecoRepository.selecionarPorCep(email);
+        const resultado = await enderecoRepository.selecionarPorCep(cep);
 
         return resultado;
 
@@ -38,11 +38,11 @@ const enderecoService = {
     criarEndereco: async (endereco) => {
 
         const resultado = await enderecoRepository.criar(
-            user.cep,
-            user.rua,
-            user.numero,
-            user.bairro,
-            user.cidade
+            endereco.cep,
+            endereco.rua,
+            endereco.numero,
+            endereco.bairro,
+            endereco.cidade
         );
 
         return resultado;
@@ -52,11 +52,12 @@ const enderecoService = {
     atualizarEndereco: async (endereco) => {
 
         const resultado = await enderecoRepository.atualizar(
-            user.cep,
-            user.rua,
-            user.numero,
-            user.bairro,
-            user.cidade
+            endereco.cep,
+            endereco.rua,
+            endereco.numero,
+            endereco.bairro,
+            endereco.cidade,
+            endereco.id
         );
 
         return resultado;

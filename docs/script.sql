@@ -1,12 +1,16 @@
 DROP DATABASE IF EXISTS brilhototal;
+
 CREATE DATABASE IF NOT EXISTS brilhototal;
+
 USE brilhototal;
+
 
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(20) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
+
 
 CREATE TABLE endereco (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,23 +21,28 @@ CREATE TABLE endereco (
     cidade VARCHAR(20) NOT NULL
 );
 
+
 CREATE TABLE cliente (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
-    cpf CHAR(11) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    cpf CHAR(11) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
     telefone CHAR(11) NOT NULL,
-    id_endereco INT,
+    id_endereco INT NOT NULL,
+
     FOREIGN KEY (id_endereco) REFERENCES endereco(id)
 );
 
+
 CREATE TABLE veiculo (
-    placa CHAR(8) PRIMARY KEY NOT NULL,
+    placa CHAR(8) PRIMARY KEY,
     modelo VARCHAR(50) NOT NULL,
     cor VARCHAR(20) NOT NULL,
     id_cliente INT NOT NULL,
+
     FOREIGN KEY (id_cliente) REFERENCES cliente(id)
 );
+
 
 CREATE TABLE os (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -42,6 +51,7 @@ CREATE TABLE os (
     data DATE NOT NULL,
     placa_veiculo CHAR(8) NOT NULL,
     id_user INT NOT NULL,
+
     FOREIGN KEY (placa_veiculo) REFERENCES veiculo(placa),
     FOREIGN KEY (id_user) REFERENCES user(id)
 );
@@ -53,12 +63,14 @@ CREATE TABLE servico (
     descricao VARCHAR(200)
 );
 
+
 CREATE TABLE item (
     id INT AUTO_INCREMENT PRIMARY KEY,
     valor DECIMAL(10,2) NOT NULL,
     quantidade INT NOT NULL,
     id_os INT NOT NULL,
     id_servico INT NOT NULL,
+
     FOREIGN KEY (id_os) REFERENCES os(id),
     FOREIGN KEY (id_servico) REFERENCES servico(id)
 );
