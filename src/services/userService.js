@@ -1,5 +1,5 @@
-import userRepository from "../repositories/userRepository.js";
-import bcrypt from "bcrypt";
+import userRepository from '../repositories/userRepository.js';
+import bcrypt from 'bcrypt';
 
 const userService = {
   recuperarUsuario: async () => {
@@ -12,7 +12,7 @@ const userService = {
     return resultado;
   },
 
-  recuperarUsuarioPorUserame: async (userName) => {
+  recuperarUsuarioPoruserName: async (userName) => {
     const resultado = await userRepository.selecionarPoruserName(userName);
     return resultado;
   },
@@ -23,7 +23,10 @@ const userService = {
   },
 
   criarUsuario: async (user) => {
-    const resultado = await userRepository.criar(user.userName, user.password);
+    const resultado = await userRepository.criar(
+      user.userName, 
+      user.password, 
+      user.role);
     return resultado;
   },
 

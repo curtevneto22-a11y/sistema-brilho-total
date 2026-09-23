@@ -1,40 +1,39 @@
-import { use } from "react";
-import pool from "../configs/database.js";
+import pool from '../configs/database.js';
 
 const userRepository = {
   selecionar: async () => {
-    const sql = "SELECT * FROM users;";
+    const sql = 'SELECT * FROM user;';
     const [rows] = await pool.execute(sql);
     return rows;
   },
 
   selecionarPorId: async (userID) => {
-    const sql = "SELECT * DROM users WHERE id = ?;";
-    const [rows] = await pool.execute(sql[userID]);
+    const sql = 'SELECT * FROM user WHERE id = ?;';
+    const [rows] = await pool.execute(sql, [userID]); 
     return rows;
   },
 
   selecionarPoruserName: async (userName) => {
-    const sql = "SELECT * FROM users WHERE username = ?;";
-    const [rows] = await pool.execute(sql[userName]);
+    const sql = 'SELECT * FROM user WHERE username = ?;';
+    const [rows] = await pool.execute(sql, [userName]);
     return rows;
   },
 
-  criar: async (userName, password) => {
-    const sql = "INSERT INTO users VALUES(null, ?, ?);";
-    const [rows] = await pool.execute(sql[(userName, password)]);
+  criar: async (userName, password, role) => {
+    const sql = 'INSERT INTO user VALUES(null, ?, ?, ?);';
+    const [rows] = await pool.execute(sql, [userName, password, role]);
     return rows;
   },
-
-  atualizar: async (userName, password) => {
-    const sql = `UPDATE users SET username = ?, password = ? WHERE id = ?;`;
-    const [rows] = await pool.execute(sql[(userName, password)]);
+  
+  atualizar: async (userName, password, userId) => {
+    const sql = 'UPDATE user SET username = ?, password = ? WHERE id = ?;';
+    const [rows] = await pool.execute(sql, [userName, password, userId]);
     return rows;
   },
 
   deletar: async (userId) => {
-    const sql = "DELETE FROM users WHERE id = ?;";
-    const [rows] = await pool.execute(sql[userId]);
+    const sql = 'DELETE FROM user WHERE id = ?;';
+    const [rows] = await pool.execute(sql, [userId]);
     return rows;
   },
 };

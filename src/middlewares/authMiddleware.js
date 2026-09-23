@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import "dotenv/config";
+import jwt from 'jsonwebtoken';
+import 'dotenv/config';
 
 async function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
@@ -18,9 +18,7 @@ async function authMiddleware(req, res, next) {
     next();
   } catch (error) {
     console.error(error);
-    return res.status(401).json({
-      message: "Token inválido",
-    });
+    return res.status(401).json({ message: "Token inválido",});
   }
 }
 

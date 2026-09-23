@@ -1,5 +1,5 @@
-import User from "../models/User.js";
-import userService from "../services/userService.js";
+import User from '../models/User.js';
+import userService from '../services/userService.js';
 
 const userController = {
   selecionar: async (req, res) => {
@@ -20,8 +20,9 @@ const userController = {
 
   criar: async (req, res) => {
     try {
-      const { userName, password } = req.body;
-      const user = new User(userName, password, null);
+      const { userName, password, role } = req.body;
+      const hasedPassword = await userService.hashPassword(password);
+      const user = new User(userName, hasedPassword, role, null);
       const resultado = await userService.criarUsuario(user);
 
       return res.status(201).json({

@@ -1,23 +1,19 @@
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import "dotenv/config";
-import userService from "../services/userService.js";
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import 'dotenv/config';
+import userService from '../services/userService.js';
 
 const authController = {
   login: async (req, res) => {
     try {
       const { userName, password } = req.body;
-      const userExists =
-        await userService.recuperarUsuarioPoruserName(userName);
+      const userExists = await userService.recuperarUsuarioPoruserName(userName);
 
       if (!userExists || userExists.length === 0) {
         return res.status(401).json({ message: "Usuário ou senha inválidos!" });
       }
 
-      const validPassword = await bcrypt.compare(
-        password,
-        userExists[0].password,
-      );
+      const validPassword = await bcrypt.compare( password, userExists[0].password);
 
       if (!validPassword) {
         return res.status(401).json({

@@ -2,10 +2,13 @@ class User {
   #id;
   #userName;
   #password;
+  #role;
 
-  constructor(userName, password, id = null) {
+  constructor(userName, password, role, id = null) {
     this.#userName = userName;
     this.#password = password;
+    this.#role = role;
+    
     this.#id = id;
   }
 
@@ -27,6 +30,15 @@ class User {
 
   set password(value) {
     this.#password = value;
+  }
+
+  get role() {
+    
+    return this.#role;
+  }
+
+  set role(value) {
+    this.#role = value;
   }
 }
 
