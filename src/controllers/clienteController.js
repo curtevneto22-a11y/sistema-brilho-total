@@ -25,6 +25,44 @@ const clienteController = {
 
     },
 
+    selecionarPorId: async (req, res) => {
+    try {
+         const { id } = req.params;
+
+         const resultado = await clienteService.recuperarClientePorId(id);
+
+         return res.status(200).json({
+             message: "Cliente recuperado com sucesso!",
+             data: resultado
+         });
+
+        } catch (error) {
+         return res.status(500).json({
+             message: "Erro ao recuperar cliente!",
+              data: error.message
+             });
+        }
+    },
+
+    selecionarPorEmail: async (req, res) => {
+        try {
+            const { email } = req.params;
+
+            const resultado = await clienteService.recuperarClientePorEmail(email);
+
+         return res.status(200).json({
+                message: "Cliente recuperado com sucesso!",
+                data: resultado
+            });
+
+        } catch (error) {
+            return res.status(500).json({
+             message: "Erro ao recuperar cliente!",
+             data: error.message
+         });
+     }
+    },
+
     criar: async (req, res) => {
 
     try {

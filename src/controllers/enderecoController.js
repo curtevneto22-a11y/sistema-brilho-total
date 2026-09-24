@@ -25,6 +25,44 @@ const enderecoController = {
 
     },
 
+    selecionarPorId: async (req, res) => {
+        try {
+            const { id } = req.params;
+
+            const resultado = await enderecoService.recuperarEnderecoPorId(id);
+
+         return res.status(200).json({
+             message: "Endereço recuperado com sucesso!",
+                data: resultado
+            });
+
+        } catch (error) {
+            return res.status(500).json({
+             message: "Erro ao recuperar endereço!",
+                data: error.message
+            });
+        }
+    },
+
+    selecionarPorCep: async (req, res) => {
+        try {
+         const { cep } = req.params;
+
+            const resultado = await enderecoService.recuperarEnderecoPorCep(cep);
+
+            return res.status(200).json({
+                message: "Endereço recuperado com sucesso!",
+                data: resultado
+            });
+
+        } catch (error) {
+         return res.status(500).json({
+             message: "Erro ao recuperar endereço!",
+             data: error.message
+            });
+        }
+    },
+
     criar: async (req, res) => {
 
     try {
