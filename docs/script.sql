@@ -36,7 +36,7 @@ CREATE TABLE cliente (
 
 
 CREATE TABLE veiculo (
-    placa CHAR(8) PRIMARY KEY,
+    placa CHAR(8) PRIMARY KEY UNIQUE,
     modelo VARCHAR(50) NOT NULL,
     cor VARCHAR(20) NOT NULL,
     id_cliente INT NOT NULL,
