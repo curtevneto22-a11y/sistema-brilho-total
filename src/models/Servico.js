@@ -3,43 +3,40 @@ class Servico {
     #descricao;
     #valor;
 
-    constructor (descricao, valor, id= null){
+    constructor(descricao, valor, id = null) {
         this.#descricao = descricao;
-        this.#valor = valor;        
+        this.#valor = valor;
         this.#id = id;
-
     }
 
-    get id (){
+    get id() {
         return this.#id;
-
     }
 
-
-    //descricao
-    get descricao (){
+    get descricao() {
         return this.#descricao;
     }
 
-    set descricao (value){
+    set descricao(value) {
         this.#descricao = value;
     }
-    
 
-    //valor
-    get valor (){
-        return this.#valor
+    get valor() {
+        return this.#valor;
     }
 
-    set valor (value){
-        return this.#valor = value;
+    set valor(value) {
+        this.#valor = value;
     }
-    
+
+    // Adicione este método:
+    toJSON() {
+        return {
+            id: this.#id,
+            descricao: this.#descricao,
+            valor: this.#valor
+        };
+    }
 }
 
 export default Servico;
-
-    
-
-
-
