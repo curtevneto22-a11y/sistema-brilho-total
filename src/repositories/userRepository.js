@@ -26,6 +26,7 @@ const userRepository = {
   },
   
   atualizar: async (userName, password, userId) => {
+    
     const sql = 'UPDATE user SET username = ?, password = ? WHERE id = ?;';
     const [rows] = await pool.execute(sql, [userName, password, userId]);
     return rows;

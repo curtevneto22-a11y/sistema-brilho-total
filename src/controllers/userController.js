@@ -60,7 +60,8 @@ const userController = {
     try {
       const id = Number(req.params.id);
       const { userName, password } = req.body;
-      const user = new User(userName, password, id);
+      const hasedPassword = await userService.hashPassword(password);
+      const user = new User(userName, hasedPassword, null, id);
       const resultado = await userService.atualizarUsuario(user);
 
       return res.status(200).json({
