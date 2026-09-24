@@ -1,14 +1,17 @@
 import express from 'express';
 import servicoRoutes from './routes/servicoRoutes.js';
-
+import clienteRoutes from './routes/clienteRoutes.js';
+import enderecoRoutes from './routes/enderecoRoutes.js';
 
 const app = express();
+const port = process.env.SERVER_PORT;
 
 app.use(express.json());
 
 // Registar a rota de serviços
 app.use('/servicos', servicoRoutes);
-
+app.use('/clientes', clienteRoutes)
+app.use('/enderecos', enderecoRoutes)
 
 // Tratamento de erros centralizado (para responder aos erros do ServicoError)
 app.use((err, req, res, next) => {
@@ -16,6 +19,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).json({ error: err.message || 'Erro interno do servidor.' });
 });
 
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
-});
+app.listen(port, ()=> {
+    console.log("servidor rodando na porta "+ port)
+})
