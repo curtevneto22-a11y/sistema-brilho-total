@@ -1,0 +1,741 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Testando o Projeto
+meta:
+  id: wrk_8125169b9a9e47bdb200ad9430689abb
+  created: 1790209022944
+  modified: 1790290868737
+  description: ""
+collection:
+  - name: Serviços
+    meta:
+      id: fld_1da07b133a6a4239a0376c8ebbc5b791
+      created: 1790290241612
+      modified: 1790379959139
+      sortKey: -1790290241612
+      description: ""
+    children:
+      - url: http://localhost:3000/servicos
+        name: Criar serviço
+        meta:
+          id: req_a130be62e21846f89bff3d1557f53fcb
+          created: 1790209027308
+          modified: 1790372108327
+          isPrivate: false
+          description: ""
+          sortKey: -1790290244164
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "descricao": "Lavagem Simples",
+              "valor": 100.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/servicos
+        name: Listar serviço
+        meta:
+          id: req_ad6cc09f7f414b75ad4b7092ad9e61d0
+          created: 1790287388065
+          modified: 1790290246574
+          isPrivate: false
+          description: ""
+          sortKey: -1790290244014
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "descricao": "Lavagem completa",
+              "valor": 120.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/servicos/2
+        name: Selecionar serviço
+        meta:
+          id: req_12c02aee9ffa41b78899e9cac698c847
+          created: 1790287770684
+          modified: 1790379933331
+          isPrivate: false
+          description: ""
+          sortKey: -1790290244064
+        method: GET
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "descricao": "Lavagem completa",
+              "valor": 120.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/servicos/2
+        name: Atualizar serviço
+        meta:
+          id: req_4a26db52b7cc43d9be3cb82ddea670f4
+          created: 1790287874432
+          modified: 1790293447146
+          isPrivate: false
+          description: ""
+          sortKey: -1790290243989
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "descricao": "Lavagem completa + espelhamento",
+              "valor": 120.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/servicos/1
+        name: Deletar serviço
+        meta:
+          id: req_0471cde09fbc4c91a3d2b58afd3968c9
+          created: 1790293535301
+          modified: 1790293574329
+          isPrivate: false
+          description: ""
+          sortKey: -1789426769462.5
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "descricao": "Lavagem Simples",
+              "valor": 100.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Users
+    meta:
+      id: fld_588d8277ee494457a455d120e379baf8
+      created: 1790290258468
+      modified: 1790290258468
+      sortKey: -1790290258468
+      description: ""
+    children:
+      - url: localhost:3000/users
+        name: Listar
+        meta:
+          id: req_10f85e9a46e44b79af11d074a403f10c
+          created: 1788563310432
+          modified: 1790292935241
+          isPrivate: false
+          description: ""
+          sortKey: -1790291210110
+        method: GET
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzkwMjkyOTE3LCJleHAiOjE3OTAyOTM4MTd9.M-tnkhwvOqysnKHgV1kh8yJGlBDA7rs6cpSoXLqBlIA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/users
+        name: Criar
+        meta:
+          id: req_2ac41466f2bd4223b5acfdb1e3d57f8f
+          created: 1788567831206
+          modified: 1790291210279
+          isPrivate: false
+          description: ""
+          sortKey: -1790291210210
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"userName": "Valdo",
+            	"password": "12345678",
+            	"role": "admin"	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/users/:id
+        name: Deletar
+        meta:
+          id: req_475ddb2ade59415a8d281cd353664e1c
+          created: 1788994686222
+          modified: 1790292057908
+          isPrivate: false
+          description: ""
+          sortKey: -1790291209910
+        method: DELETE
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzkwMjkxODM0LCJleHAiOjE3OTAyOTI3MzR9.2YvG4hxEDb-H-7ZUj82qhF_GRYvtzgg6KZUaUjpbBas
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+        pathParameters:
+          - name: id
+            value: "2"
+      - url: localhost:3000/users/:id
+        name: Atualizar
+        meta:
+          id: req_5b01897d4b624c95bbd12244e85cb44d
+          created: 1788996649005
+          modified: 1790293387750
+          isPrivate: false
+          description: ""
+          sortKey: -1790291210010
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"userName": "Estefano",
+            	"password": "12345678"	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzkwMjkyOTE3LCJleHAiOjE3OTAyOTM4MTd9.M-tnkhwvOqysnKHgV1kh8yJGlBDA7rs6cpSoXLqBlIA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+        pathParameters:
+          - name: id
+            value: "1"
+      - url: localhost:3000/auth/login
+        name: Login
+        meta:
+          id: req_7c1845ff4cee4378b98f7353054d1295
+          created: 1789085562111
+          modified: 1790380167328
+          isPrivate: false
+          description: ""
+          sortKey: -1790291210160
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	
+            	"userName": "Valdo",
+            	"password": "12345678"
+            	
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzkwMjkyNzE5LCJleHAiOjE3OTAyOTM2MTl9.s-9FGw0D6SZU0kqiQXn1GBBcJGkHjxJIIGMQ93QSDmA
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Clientes
+    meta:
+      id: fld_4eda5de12bfc4e3e8ce522a656877113
+      created: 1790291358817
+      modified: 1790291358817
+      sortKey: -1790291358817
+      description: ""
+    children:
+      - url: localhost:3000/clientes
+        name: Selecionar
+        meta:
+          id: req_2670cfbf9014416b8d3d4445527fd51b
+          created: 1790207654485
+          modified: 1790374650405
+          isPrivate: false
+          description: ""
+          sortKey: -1790291363501
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/clientes
+        name: Criar
+        meta:
+          id: req_514be546b552496db2ffb2849067bddf
+          created: 1790207737118
+          modified: 1790380203782
+          isPrivate: false
+          description: ""
+          sortKey: -1790291363413.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Nicolas",
+            	"cpf": "11111111111",
+            	"email": "nicolas2@gmail.com",
+            	"telefone": "19989898989",
+            	"id_endereco": "1"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/clientes/2
+        name: Atualizar
+        meta:
+          id: req_f39c93711b5f47e98e39c9a697a75b40
+          created: 1790207849046
+          modified: 1790291790340
+          isPrivate: false
+          description: ""
+          sortKey: -1790291363404.125
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Nicolas",
+            	"cpf": "33322211144",
+            	"email": "nicolas3@gmail.com",
+            	"telefone": "1999999999",
+            	"id_endereco": "2"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/clientes/2
+        name: Deletar
+        meta:
+          id: req_3a66a604aa8c4d519e4cd23cb386dab2
+          created: 1790207868294
+          modified: 1790291801468
+          isPrivate: false
+          description: ""
+          sortKey: -1790291363407.25
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/clientes/2
+        name: Selecionar por ID
+        meta:
+          id: req_750ab6436ac848008c8f94b711cdcce6
+          created: 1790208278407
+          modified: 1790381803514
+          isPrivate: false
+          description: ""
+          sortKey: -1790291363451
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/clientes/email/nicolas2@gmail.com
+        name: Selecionar por email
+        meta:
+          id: req_95ddd79ffe1347c6958b194347d12512
+          created: 1790208288966
+          modified: 1790291760528
+          isPrivate: false
+          description: ""
+          sortKey: -1790291363426
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: Endereço
+        meta:
+          id: fld_32f07c62948a4b8eaaad2401eac056e6
+          created: 1790291251425
+          modified: 1790291363455
+          sortKey: -1790291363401
+          description: ""
+        children:
+          - url: localhost:3000/enderecos
+            name: Selecionar
+            meta:
+              id: req_ae211567e8524b97b0af214770d92ed0
+              created: 1790207166914
+              modified: 1790291259854
+              isPrivate: false
+              description: ""
+              sortKey: -1790291259768
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/enderecos
+            name: Criar
+            meta:
+              id: req_fdd4d742ba7c477ab53e0b2378048cef
+              created: 1790207276986
+              modified: 1790291266313
+              isPrivate: false
+              description: ""
+              sortKey: -1790291259468
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cep": "13131-121",
+                	"rua": "Rua Lauereano",
+                	"numero": "685",
+                	"bairro": "Makarenko",
+                	"cidade": "Sumaré"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/enderecos/1
+            name: Atualizar
+            meta:
+              id: req_926b5a7230f34831aadc20a8bc64ec5b
+              created: 1790207318724
+              modified: 1790291308109
+              isPrivate: false
+              description: ""
+              sortKey: -1790291259368
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"cep": "13131-122",
+                	"rua": "Rua 7 de setembro",
+                	"numero": "685",
+                	"bairro": "Macarenko",
+                	"cidade": "Hortolândia"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/enderecos/1
+            name: Deletar
+            meta:
+              id: req_92d11933add643dba6a80c24494439f0
+              created: 1790207347535
+              modified: 1790291269513
+              isPrivate: false
+              description: ""
+              sortKey: -1790291259268
+            method: DELETE
+            body:
+              mimeType: application/json
+              text: ""
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/enderecos/1
+            name: Selecionar por ID
+            meta:
+              id: req_565f4dc75d9d440b81e2f1957ce5b078
+              created: 1790208533533
+              modified: 1790291262303
+              isPrivate: false
+              description: ""
+              sortKey: -1790291259668
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: localhost:3000/enderecos/cep/13131-121
+            name: Selecionar por CEP
+            meta:
+              id: req_0c6e9f8a81014eff881f1b94facc87d7
+              created: 1790208546115
+              modified: 1790291264393
+              isPrivate: false
+              description: ""
+              sortKey: -1790291259568
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+  - name: Veiculo
+    meta:
+      id: fld_155511df9a4c46309f6050a178f74eac
+      created: 1790374615358
+      modified: 1790374615358
+      sortKey: -1790374615358
+      description: ""
+    children:
+      - url: localhost:3000/veiculos
+        name: Criar veiculo
+        meta:
+          id: req_36ea8b704de14f30a0e5d8a7a5a36550
+          created: 1790374623502
+          modified: 1790380423193
+          isPrivate: false
+          description: ""
+          sortKey: -1790374623502
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "placa": "ERT2300",
+              "modelo": "Corsa",
+            	"cor": "Preto",
+            	"id_cliente": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/veiculos
+        name: Listar todos os veiculo
+        meta:
+          id: req_56c40869fc6a4010897e6fae7ba8835b
+          created: 1790380335720
+          modified: 1790380469097
+          isPrivate: false
+          description: ""
+          sortKey: -1790332993501.5
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/veiculos/ERT2311
+        name: Listar veiculo
+        meta:
+          id: req_0d079fd75bad47bb8de37368f41b6169
+          created: 1790380384717
+          modified: 1790380821659
+          isPrivate: false
+          description: ""
+          sortKey: -1790312178501.25
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/veiculos/ERT2345
+        name: Deletar veiculo
+        meta:
+          id: req_f1f873bc5a8941948ff13e43346add93
+          created: 1790380484543
+          modified: 1790380511495
+          isPrivate: false
+          description: ""
+          sortKey: -1790301771001.125
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:3000/veiculos/ERT2300
+        name: Atualizar veiculo
+        meta:
+          id: req_cff63c3a9c0a4394ba9779936b65d379
+          created: 1790380549062
+          modified: 1790380793989
+          isPrivate: false
+          description: ""
+          sortKey: -1790353808501.75
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "novaPlaca": "ERT2311",
+              "modelo": "Corsa Sedan",
+            	"cor": "RED",
+            	"id_cliente": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_aa273acfea1be8ed8dbc9f06f88999980a7b5654
+    created: 1790209022976
+    modified: 1790209022976
+environments:
+  name: Base Environment
+  meta:
+    id: env_aa273acfea1be8ed8dbc9f06f88999980a7b5654
+    created: 1790209022951
+    modified: 1790209022951
+    isPrivate: false
