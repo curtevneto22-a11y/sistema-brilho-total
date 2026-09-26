@@ -4,20 +4,27 @@ const veiculoRepository = {
 
     selecionar: async () => {
 
-        const sql = 'SELECT * FROM veiculo;';
-
+        const sql = `SELECT 
+                        v.*,
+                        c.id AS "id_cliente", c.nome, c.cpf, c.email
+                    FROM veiculo AS v
+                    INNER JOIN cliente AS c
+                        ON v.id_cliente = c.id;`;
         const [rows] = await pool.execute(sql);
-
         return rows;
 
     },
 
     selecionarPorPlaca: async (veiculoPlaca) => {
 
-        const sql = 'SELECT * FROM veiculo WHERE placa = ?;';
-
+        const sql = `SELECT 
+                        v.*,
+                        c.id AS "id_cliente", c.nome, c.cpf, c.email
+                    FROM veiculo AS v
+                    INNER JOIN cliente AS c
+                        ON v.id_cliente = c.id
+                    WHERE placa = ?`;
         const [rows] = await pool.execute(sql, [veiculoPlaca]);
-
         return rows;
 
     },
@@ -25,9 +32,7 @@ const veiculoRepository = {
     deletar: async (veiculoPlaca) => {
 
         const sql = 'DELETE FROM veiculo WHERE placa = ?;';
-
         const [rows] = await pool.execute(sql, [veiculoPlaca]);
-
         return rows;
 
     },
@@ -35,7 +40,6 @@ const veiculoRepository = {
     criar: async (placa, modelo, cor, id_cliente) => {
 
         const sql = 'INSERT INTO veiculo VALUES( ?, ?, ?, ?);';
-
         const [rows] = await pool.execute(
             sql,
             [placa, modelo, cor, id_cliente]
@@ -46,9 +50,9 @@ const veiculoRepository = {
     },
 
     atualizar: async (placa, modelo, cor, id_cliente, placaAntiga) => {
-
-        const sql = 'UPDATE veiculo SET placa = ?, modelo = ?, cor = ?, id_cliente = ?, WHERE placa = ?;';
-
+        console.log(placa, modelo, cor, id_cliente, placaAntiga);
+        
+        const sql = 'UPDATE veiculo SET placa = ?, modelo = ?, cor = ?, id_cliente = ? WHERE placa = ?;';
         const [rows] = await pool.execute(
             sql,
             [placa, modelo, cor, id_cliente, placaAntiga]

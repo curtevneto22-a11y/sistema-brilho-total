@@ -3,7 +3,7 @@ class Veiculo {
     #modelo;
     #cor;
     #id_cliente
-l
+
     constructor (placa, modelo, cor, id_cliente = null){
         this.#placa = placa;
         this.#modelo = modelo;

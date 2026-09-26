@@ -4,7 +4,12 @@ const clienteRepository = {
 
     selecionar: async () => {
 
-        const sql = 'SELECT * FROM cliente;';
+        const sql = `SELECT 
+                        c.*,
+                        e.id AS "id_endereco", e.cep, e.rua, e.numero, e.bairro, e.cidade
+                    FROM cliente AS c
+                    INNER JOIN endereco AS e
+                        ON c.id_endereco = e.id;`;
 
         const [rows] = await pool.execute(sql);
 
@@ -14,7 +19,13 @@ const clienteRepository = {
 
     selecionarPorID: async (clienteId) => {
 
-        const sql = 'SELECT * FROM cliente WHERE id = ?;';
+        const sql = `SELECT 
+                        c.*,
+                        e.id AS "id_endereco", e.cep, e.rua, e.numero, e.bairro, e.cidade
+                    FROM cliente AS c
+                    INNER JOIN endereco AS e
+                        ON c.id_endereco = e.id
+                    WHERE c.id = ?;`;
 
         const [rows] = await pool.execute(sql, [clienteId]);
 

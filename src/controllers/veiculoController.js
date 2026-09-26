@@ -6,16 +6,13 @@ const veiculoController = {
     selecionar: async (req, res) => {
 
         try {
-
-            const resultado = await veiculoService.recuperarveiculo();
-
+            const resultado = await veiculoService.recuperarVeiculo();
             res.status(200).json({
                 message: "Veiculos recuperados com sucesso!",
                 data: resultado
             });
 
         } catch (error) {
-
             res.status(500).json({
                 message: "Erro ao recuperar veiculos!",
                 data: error.message
@@ -28,9 +25,7 @@ const veiculoController = {
     selecionarPorPlaca: async (req, res) => {
     try {
          const { placa } = req.params;
-
-         const resultado = await veiculoService.recuperarveiculoPorPlaca(placa);
-
+         const resultado = await veiculoService.recuperarPorPlaca(placa);
          return res.status(200).json({
              message: "Veiculo recuperado com sucesso!",
              data: resultado
@@ -47,10 +42,8 @@ const veiculoController = {
     criar: async (req, res) => {
 
     try {
-
         const {placa, modelo, cor, id_cliente} = req.body;
-
-        const veiculo = new veiculo(
+        const veiculo = new Veiculo(
             placa,
             modelo,
             cor,
@@ -58,7 +51,6 @@ const veiculoController = {
         );
 
         const resultado = await veiculoService.criarveiculo(veiculo);
-
         return res.status(201).json({
             message: "Veiculo criado com sucesso!",
             data: resultado
@@ -78,11 +70,8 @@ const veiculoController = {
     deletar: async (req, res) => {
 
         try {
-
             const { placa } = req.params;
-
             const resultado = await veiculoService.deletarveiculo(placa);
-
             res.status(200).json({
                 message: "Veiculo deletado com sucesso!",
                 data: resultado
@@ -102,11 +91,9 @@ const veiculoController = {
     atualizar: async (req, res) => {
 
         try {
-
             const { placa } = req.params;
-
             const { novaPlaca, modelo, cor, id_cliente } = req.body;
-
+            
             const dadosAtualizados = new Veiculo(
                 novaPlaca,
                 modelo,
@@ -124,7 +111,6 @@ const veiculoController = {
             });
 
         } catch (error) {
-
             res.status(500).json({
                 message: "Erro ao atualizar veiculo!",
                 data: error.message
