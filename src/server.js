@@ -5,6 +5,7 @@ import enderecoRoutes from './routes/enderecoRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import veiculoRoutes from './routes/veiculoRoutes.js';
+import itemRoutes from './routes/itemRoutes.js'
 
 const app = express();
 const port = process.env.SERVER_PORT;
@@ -18,6 +19,7 @@ app.use('/enderecos', enderecoRoutes)
 app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
 app.use('/veiculos', veiculoRoutes);
+app.use('/item', itemRoutes);
 
 
 // Tratamento de erros centralizado (para responder aos erros do ServicoError)

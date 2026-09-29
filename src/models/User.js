@@ -8,8 +8,8 @@ class User {
     this.#userName = userName;
     this.#password = password;
     this.#role = role;
-    
     this.#id = id;
+    
   }
 
   get id() {

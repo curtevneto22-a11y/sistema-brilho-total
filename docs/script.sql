@@ -67,6 +67,7 @@ CREATE TABLE servico (
 
 CREATE TABLE item (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(30) NOT NULL,
     valor DECIMAL(10,2) NOT NULL,
     quantidade INT NOT NULL,
     id_os INT NOT NULL,
