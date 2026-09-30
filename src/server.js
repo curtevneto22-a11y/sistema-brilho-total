@@ -5,7 +5,8 @@ import enderecoRoutes from './routes/enderecoRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import veiculoRoutes from './routes/veiculoRoutes.js';
-import itemRoutes from './routes/itemRoutes.js'
+import itemRoutes from './routes/itemRoutes.js';
+import osRoutes from './routes/osRoutes.js';
 
 const app = express();
 const port = process.env.SERVER_PORT;
@@ -20,6 +21,7 @@ app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
 app.use('/veiculos', veiculoRoutes);
 app.use('/item', itemRoutes);
+app.use('/os', osRoutes);
 
 
 // Tratamento de erros centralizado (para responder aos erros do ServicoError)
@@ -30,4 +32,4 @@ app.use((err, req, res, next) => {
 
 app.listen(port, ()=> {
     console.log("servidor rodando na porta "+ port)
-})
+});

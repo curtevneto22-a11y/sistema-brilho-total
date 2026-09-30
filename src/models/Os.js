@@ -1,4 +1,4 @@
-class OS {
+class Os {
     #id;
     #obs;
     #total;
@@ -60,16 +60,6 @@ class OS {
         this.#id_user = value;
     }
 
-    toJSON() {
-        return {
-            id: this.#id,
-            obs: this.#obs,
-            total: this.#total,
-            data: this.#data,
-            placa_veiculo: this.#placa_veiculo,
-            id_user: this.#id_user,
-        };
-    }
 }
 
-export default OS;
+export default Os;

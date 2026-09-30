@@ -1,5 +1,5 @@
 import itemService from '../services/itemService.js';
-import itemModels from '../models/Item.js';
+import Item from '../models/Item.js';
 
 const itemController = {
 
@@ -63,7 +63,7 @@ selecionarPorId: async (req, res) => {
 
         const { nome, valor, quantidade, id_os, id_servico  } = req.body;
 
-        const item = new Cliente(
+        const item = new Item(
             nome,
             valor,
             quantidade,
@@ -122,7 +122,7 @@ selecionarPorId: async (req, res) => {
 
             const { nome, valor, quantidade, id_os, id_servico } = req.body;
 
-            const atualizarItens = new Cliente(
+            const atualizarItens = new Item(
                 nome,
                 valor,
                 quantidade,

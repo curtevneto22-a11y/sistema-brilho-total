@@ -1,52 +1,37 @@
 import pool from '../configs/database.js';
-import OS from '../models/Os.js';
 
-const TABELA = 'os';
+const osRepository = {
 
-function paraOS(linha) {
-    if (!linha) return null;
-    return new OS(linha.obs, Number(linha.total), linha.data, linha.placa_veiculo, );
+    selecionar: async () => {
+        const sql = 'SELECT * FROM os;';
+        const [rows] = await pool.execute(sql);
+        return rows;
+    },
+
+    selecionarPorId: async (userID) => {
+    const sql = 'SELECT * FROM user WHERE id = ?;';
+    const [rows] = await pool.execute(sql, [userID]); 
+    return rows;
+  },
+  
+    criar: async (obs, total, data, placa_veiculo, id_user) => {
+    const sql = 'INSERT INTO os VALUES(null, ?, ?, ?, ?, ?);';
+    const [rows] = await pool.execute(sql, [obs, total, data, placa_veiculo, id_user]);
+    return rows;
+  },
+  
+    atualizar: async (obs, total, data, placa_veiculo, id_user) => {
+    
+    const sql = 'UPDATE os SET obs = ?, total = ? data = ?, placa_veiculo = ?, id_user = ?;';
+    const [rows] = await pool.execute(sql, [obs, total, data, placa_veiculo, id_user]);
+    return rows;
+  },
+
+    deletar: async (osId) => {
+    const sql = 'DELETE FROM os WHERE id = ?;';
+    const [rows] = await pool.execute(sql, [osId]);
+    return rows;
+  },
 }
 
-const OsRepository = {
-    selecionar: async () => {
-        const [linhas] = await pool.execute(
-            `SELECT id, descricao, valor FROM ${TABELA} ORDER BY id`
-        );
-        return linhas.map(paraOs);
-    },
-
-    selecionarPorId: async (id) => {
-        const [linhas] = await pool.execute(
-            `SELECT id, descricao, valor FROM ${TABELA} WHERE id = ?`,
-            [id]
-        );
-        return paraServico(linhas[0]);
-    },
-
-    criar: async (descricao, valor) => {
-        const [resultado] = await pool.execute(
-            `INSERT INTO ${TABELA} (descricao, valor) VALUES (?, ?)`,
-            [descricao, valor]
-        );
-        return new Servico(descricao, valor, resultado.insertId);
-    },
-
-    atualizar: async (id, descricao, valor) => {
-        const [resultado] = await pool.execute(
-            `UPDATE ${TABELA} SET descricao = ?, valor = ? WHERE id = ?`,
-            [descricao, valor, id]
-        );
-        return resultado.affectedRows > 0;
-    },
-
-    deletar: async (id) => {
-        const [resultado] = await pool.execute(
-            `DELETE FROM ${TABELA} WHERE id = ?`,
-            [id]
-        );
-        return resultado.affectedRows > 0;
-    },
-};
-
-export default servicoRepository;
+export default osRepository;

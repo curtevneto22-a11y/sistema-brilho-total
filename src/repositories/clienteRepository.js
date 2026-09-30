@@ -46,7 +46,6 @@ const clienteRepository = {
     },
 
     criar: async (nome, cpf, email, telefone, id_endereco) => {
-
         const sql = 'INSERT INTO cliente VALUES(null, ?, ?, ?, ?, ?);';
         const [rows] = await pool.execute(sql, [nome, cpf, email, telefone, id_endereco]);
         return rows;
