@@ -12,8 +12,8 @@ const itemService = {
         return resultado;
     },
 
-    recperarPorNome: async (itemNome) => {
-        const  resultado = await itemRepository.selecionarPorNome(itemNome);
+    recuperarPorNome: async (itemNome) => {
+        const resultado = await itemRepository.selecionarPorNome(itemNome);
         return resultado;
     },
 
@@ -23,9 +23,9 @@ const itemService = {
             item.valor,
             item.quantidade,
             item.id_os,
-            item.id_servico,
-            item.idProduto
+            item.id_servico
         );
+
         return resultado;
     },
 
@@ -35,8 +35,10 @@ const itemService = {
             item.valor,
             item.quantidade,
             item.id_os,
-            item.id_servico
+            item.id_servico,
+            item.id
         );
+
         return resultado;
     },
 

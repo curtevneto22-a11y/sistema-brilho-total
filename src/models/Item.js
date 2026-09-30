@@ -1,22 +1,31 @@
-class Item{
+class Item {
 
     #id;
+    #nome;
     #valor;
     #quantidade;
     #id_os;
-    #id_servico
+    #id_servico;
 
-    constructor(valor, quantidade, id_os, id_servico, id = null) {
+    constructor(nome, valor, quantidade, id_os, id_servico, id = null) {
+        this.#nome = nome;
         this.#valor = valor;
         this.#quantidade = quantidade;
         this.#id_os = id_os;
         this.#id_servico = id_servico;
         this.#id = id;
-
     }
 
     get id() {
         return this.#id;
+    }
+
+    get nome() {
+        return this.#nome;
+    }
+
+    set nome(value) {
+        this.#nome = value;
     }
 
     get valor() {

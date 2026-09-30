@@ -3,10 +3,10 @@ import osController from "../controllers/osController.js";
 
 const osRoutes = Router();
 
-clienteRoutes.post("/", osController.criar);
-clienteRoutes.get("/", osController.selecionar);
-clienteRoutes.get("/:id", osController.selecionarPorId);
-clienteRoutes.delete("/:id", osController.deletar);
-clienteRoutes.put("/:id", osController.atualizar);
+osRoutes.post("/", osController.criar);
+osRoutes.get("/", osController.selecionar);
+osRoutes.get("/:id", osController.selecionarPorId);
+osRoutes.delete("/:id", osController.deletar);
+osRoutes.put("/:id", osController.atualizar);
 
 export default osRoutes;
