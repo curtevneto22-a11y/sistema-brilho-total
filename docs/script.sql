@@ -7,11 +7,12 @@ USE brilhototal;
 
 CREATE TABLE user (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(20) NOT NULL,
+    username VARCHAR(20) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role ENUM('user', 'admin') NOT NULL DEFAULT "user"
 );
 
+INSERT INTO  user (username, password, role) VALUES ("admin", "$2b$10$YL6npBPROyK4twOFMcqRvecIZ7Coe9qwta2jpwuNi1upFIOtq.0MK", "admin");
 
 CREATE TABLE endereco (
     id INT AUTO_INCREMENT PRIMARY KEY,

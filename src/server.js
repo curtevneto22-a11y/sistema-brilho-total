@@ -1,4 +1,5 @@
 import express from 'express';
+import 'dotenv/config';
 import servicoRoutes from './routes/servicoRoutes.js';
 import clienteRoutes from './routes/clienteRoutes.js';
 import enderecoRoutes from './routes/enderecoRoutes.js';
