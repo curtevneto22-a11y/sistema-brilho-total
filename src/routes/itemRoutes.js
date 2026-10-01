@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import itemController from '../controllers/itemController.js';
+import itemController from '../Controllers/itemController.js';
+import authMiddleware from "../middlewares/authMiddleware.js";
 
 const itemRoutes = Router();
-
+itemRoutes.use(authMiddleware);
 
 itemRoutes.post("/", itemController.criar);
 itemRoutes.get("/", itemController.selecionar);

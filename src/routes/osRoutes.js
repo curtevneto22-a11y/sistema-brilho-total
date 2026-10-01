@@ -1,7 +1,9 @@
 import { Router } from "express";
-import osController from "../controllers/osController.js";
+import osController from "../Controllers/osController.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
 
 const osRoutes = Router();
+osRoutes.use(authMiddleware);
 
 osRoutes.post("/", osController.criar);
 osRoutes.get("/", osController.selecionar);

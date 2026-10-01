@@ -1,7 +1,10 @@
 import { Router } from 'express';
 import gerenciarServico from '../services/gerenciarServico.js';
+import authMiddleware from '../middlewares/authMiddleware.js';
+
 
 const router = Router();
+router.use(authMiddleware);
 
 // GET /servicos - Listar todos os serviços
 router.get('/', async (req, res, next) => {

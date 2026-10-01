@@ -1,7 +1,10 @@
 import { Router } from "express";
-import clienteController from "../controllers/clienteController.js";
+import clienteController from "../Controllers/clienteController.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
+
 
 const clienteRoutes = Router();
+clienteRoutes.use(authMiddleware);
 
 clienteRoutes.get("/", clienteController.selecionar);
 clienteRoutes.post("/", clienteController.criar);

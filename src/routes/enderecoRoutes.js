@@ -1,7 +1,9 @@
 import { Router } from "express";
-import enderecoController from "../controllers/enderecoController.js";
+import enderecoController from "../Controllers/enderecoController.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
 
 const enderecoRoutes = Router();
+enderecoRoutes.use(authMiddleware);
 
 enderecoRoutes.get("/", enderecoController.selecionar);
 

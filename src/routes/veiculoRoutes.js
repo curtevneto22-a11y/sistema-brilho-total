@@ -1,7 +1,11 @@
 import { Router } from "express";
-import veiculoController from "../controllers/veiculoController.js";
+import veiculoController from "../Controllers/veiculoController.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
+
 
 const veiculoRoutes = Router();
+veiculoRoutes.use(authMiddleware);
+
 
 veiculoRoutes.get("/", veiculoController.selecionar);
 veiculoRoutes.get("/:placa", veiculoController.selecionarPorPlaca);
