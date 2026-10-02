@@ -1,5 +1,5 @@
 import { Router } from "express";
-import veiculoController from "../Controllers/veiculoController.js";
+import veiculoController from "../controllers/veiculoController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 
 

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import osController from "../Controllers/osController.js";
+import osController from "../controllers/osController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 
 const osRoutes = Router();
